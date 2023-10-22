@@ -1,31 +1,42 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { useState } from 'react';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, } from 'reactstrap';
+import '../styles/index.scss'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      margin: `0 auto`,
-      padding: `var(--space-4) var(--size-gutter)`,
-      display: `flex`,
-      alignItems: `center`,
-      justifyContent: `space-between`,
-    }}
-  >
-    <Link
-      to="/"
-      style={{
-        fontSize: `var(--font-sm)`,
-        textDecoration: `none`,
-      }}
-    >
-      {siteTitle}
-    </Link>
-    <img
-      alt="Gatsby logo"
-      height={20}
-      style={{ margin: 0 }}
-      src="src/images/icon.png"
-    />
+function NavBar(args) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div>
+      <Navbar {...args} dark>
+        <NavbarBrand href="/">The Provident Manager</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href="/about/">About</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/portfolio/">Portfolio</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/contact/">Contact</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+            <h1 className='message'>
+                The provident manager: a blog about business, technologie and economics.
+            </h1>
+    </div>
+  );
+}
+
+
+const Header = () => (
+  <header>
+    <NavBar/>
   </header>
 )
 
