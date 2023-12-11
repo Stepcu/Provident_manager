@@ -1,36 +1,40 @@
 import * as React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import NavBarFinal from "../components/navbar";
+import Seo from "../components/seo";
 
-
-function Component () {
-  return "Hello world"
+function Component() {
+  return <h2>About Me</h2>;
 }
 
 function Summary() {
   return (
     <Container>
       <Row>
-        <Col>hola</Col>
-        <Col>2 of 2</Col>
+        <Col>
+          <p>
+            Soy un apasionado por las finanzas y estoy emocionado de compartir mi conocimiento
+            contigo a través de este blog. Mi objetivo es proporcionar información valiosa
+            que te ayude a tomar decisiones financieras informadas y alcanzar tus metas.
+          </p>
+          <p>
+            En mi tiempo libre, disfruto explorar nuevas oportunidades de inversión, analizar
+            tendencias del mercado y aprender sobre estrategias financieras innovadoras.
+            ¡Gracias por unirte a mí en este viaje financiero!
+          </p>
+          {/* Agrega más líneas según sea necesario */}
+        </Col>
+        <Col>Publicity</Col>
       </Row>
     </Container>
   );
 }
 
-
 const AboutMe = () => (
-  <Layout>
-    <Component/>
-    <Seo title="About me" keywords={[`gatsby`, `application`, `react`]}/>
-    <Container fluid>
-      <Summary/>
-      <h1>Hello World</h1>
-    </Container>
+  <><NavBarFinal>
+  </NavBarFinal><Component /><Seo title="About me" keywords={[`gatsby`, `application`, `react`]} /><Container fluid>
+      <Summary />
+    </Container></>
+);
 
-      
-  </Layout>
-)
-
-export default AboutMe
+export default AboutMe;
